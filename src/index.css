@@ -37,7 +37,7 @@ body {
 
 .input-form2 {
   font-family: "Exo 2", sans-serif;
-  width: 300px;
+  width: 250px;
   margin: 1em;
   padding: 1em;
   font-size: 0.7em;
@@ -156,6 +156,7 @@ body {
 }
 
 .dlt-tsk {
+  font-family: "Exo 2", sans-serif;
   border: none;
   border-radius: 50%;
   height: 30px;
@@ -164,4 +165,15 @@ body {
   cursor: pointer;
   background: var(--secondery1);
   box-shadow: 0 0px 5px 2px var(--secondery1);
+}
+
+.btn-back {
+  font-family: "Exo 2", sans-serif;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin: 1em;
+  cursor: pointer;
+  background: var(--secondery1);
+  float: right;
 }

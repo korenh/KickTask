@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Exit from "../icons/exit.png";
 import Share from "../icons/share.png";
 import Circle from "../icons/circle.png";
+import firebase from "./Firebase";
 
 class Nav extends Component {
   state = {
@@ -13,6 +14,13 @@ class Nav extends Component {
     let vname = e.target.elements.name.value;
     let vstate = e.target.elements.state.value;
     let vstatus = e.target.elements.status.value;
+    let vlist = [];
+    firebase.firestore().collection("Main").add({
+      name: vname,
+      state: vstate,
+      status: vstatus,
+      list: vlist,
+    });
     this.setState({
       createNew: !this.state.createNew,
     });
