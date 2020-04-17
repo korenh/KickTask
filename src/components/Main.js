@@ -140,7 +140,6 @@ class Main extends Component {
               onClick={() => this.handleClick(main)}
               key={main.id}
             >
-              <p>{main.id}</p>
               <p>{main.name}</p>
               <p>{main.state}</p>
               <p>{main.status}</p>
