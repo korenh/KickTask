@@ -44,31 +44,7 @@ class Main extends Component {
       },
       {
         id: 4,
-        name: "Main",
-        taskCount: "67",
-        priority: "minor",
-        currentState: "done",
-        list: [
-          "koren is tierd",
-          "koren is super tierd",
-          "koren is very very tierd",
-        ],
-      },
-      {
-        id: 4,
-        name: "Main",
-        taskCount: "67",
-        priority: "minor",
-        currentState: "done",
-        list: [
-          "koren is tierd",
-          "koren is super tierd",
-          "koren is very very tierd",
-        ],
-      },
-      {
-        id: 4,
-        name: "Main",
+        name: "shit",
         taskCount: "67",
         priority: "minor",
         currentState: "done",
