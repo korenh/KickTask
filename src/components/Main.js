@@ -144,8 +144,8 @@ class Main extends Component {
               >
                 x
               </button>
-              <p>{main.list.length}</p>
               <p>{main.name}</p>
+              <p>Tasks | {main.list.length}</p>
               <p>{main.state}</p>
               <p>{main.status}</p>
             </div>

@@ -177,6 +177,7 @@ body {
   cursor: pointer;
   background: var(--secondery1);
   box-shadow: 0 0px 10px 10px var(--secondery1);
+  color: white;
 }
 
 .btn-back {
@@ -188,6 +189,7 @@ body {
   cursor: pointer;
   background: var(--secondery1);
   float: right;
+  color: white;
 }
 
 .btn-dlt2 {
