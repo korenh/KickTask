@@ -188,3 +188,14 @@ body {
   box-shadow: 0 0px 10px 10px var(--secondery1);
   float: right;
 }
+
+.form-main-add {
+  border-radius: 50px;
+  width: 100%;
+  background: var(--main);
+  position: fixed;
+  top: 70vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0px 10px 10px var(--secondery1);
+}

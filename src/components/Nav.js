@@ -35,7 +35,7 @@ class Nav extends Component {
     return (
       <div className="nav-main">
         {this.state.createNew ? (
-          <form className="top-nav" onSubmit={this.addData}>
+          <form className="form-main-add" onSubmit={this.addData}>
             <input
               name="name"
               type="text"
