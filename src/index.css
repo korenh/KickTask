@@ -46,7 +46,8 @@ body {
   border: none;
   background: none;
   outline: none;
-  color: black;
+  color: white;
+  background: var(--main);
   border-bottom: 2px solid var(--secondery4);
 }
 
