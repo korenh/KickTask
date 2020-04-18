@@ -49,27 +49,19 @@ class Nav extends Component {
             />
             <br />
             <select className="input-form-s" name="state">
-              <option className="form-input-s" selected value="critical">
+              <option selected value="critical">
                 critical
               </option>
-              <option className="form-option" value="minor">
-                minor
-              </option>
-              <option className="form-option" value="middle">
-                middle
-              </option>
+              <option value="minor">minor</option>
+              <option value="middle">middle</option>
             </select>
             <br />
             <select className="input-form-s" name="status">
-              <option className="form-input-s" selected value="done">
+              <option selected value="done">
                 done
               </option>
-              <option className="form-option" value="pending">
-                pending
-              </option>
-              <option className="form-option" value="in progress">
-                in progress
-              </option>
+              <option value="pending">pending</option>
+              <option value="in progress">in progress</option>
             </select>
             <br />
             <button className="btn-form">Add</button>

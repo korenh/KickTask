@@ -4,6 +4,7 @@
   --main: rgb(26, 27, 27);
   --secondery1: rgb(26, 27, 27);
   --secondery2: rgb(252, 132, 19);
+  --secondery3: rgb(34, 34, 34);
 }
 
 body {
@@ -89,7 +90,9 @@ body {
   width: 100%;
   position: fixed;
   bottom: 0;
-  background: var(--secondery1);
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  background: var(--secondery3);
   display: flex;
   justify-content: space-evenly;
   height: 7vh;
@@ -169,14 +172,13 @@ body {
   font-family: "Exo 2", sans-serif;
   border: none;
   border-radius: 50%;
-  height: 28px;
-  width: 28px;
+  height: 20px;
+  width: 20px;
   margin: 1em;
-  font-size: 1em;
   cursor: pointer;
   background: var(--secondery1);
-  box-shadow: 0 0px 10px 10px var(--secondery1);
-  color: white;
+  box-shadow: 0 0px 8px 8px var(--secondery1);
+  color: var(--secondery2);
 }
 
 .btn-back {
@@ -208,7 +210,7 @@ body {
   width: 100%;
   background: var(--main);
   position: fixed;
-  top: 70vh;
+  top: 75vh;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 0px 10px 10px var(--secondery1);
