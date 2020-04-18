@@ -34,7 +34,7 @@ body {
   border-radius: 10px;
   outline: none;
   color: white;
-  box-shadow: 3px 0px 8px 2px black;
+  box-shadow: 3px 0px 8px 6px rgb(22, 22, 22);
 }
 
 .input-form-s {
