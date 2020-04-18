@@ -122,6 +122,12 @@ class Main extends Component {
                     </div>
                   ))}
                 </div>
+                <button
+                  className="btn-dlt2"
+                  onClick={() => this.handleDeleteMain(main)}
+                >
+                  Delete all list
+                </button>
               </div>
             ))}
         </div>
@@ -140,12 +146,6 @@ class Main extends Component {
                 <h3>{main.name} </h3>
                 <p>Tasks | {main.list.length}</p>
               </div>
-              <button
-                className="btn-dlt2"
-                onClick={() => this.handleDeleteMain(main)}
-              >
-                x
-              </button>
             </div>
           ))}
         </div>
