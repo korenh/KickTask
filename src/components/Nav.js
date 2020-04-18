@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Exit from "../icons/exit.png";
 import Share from "../icons/share.png";
-import Circle from "../icons/circle.png";
 import firebase from "./Firebase";
 
 class Nav extends Component {
@@ -61,15 +60,13 @@ class Nav extends Component {
             <button className="btn-form">Add</button>
           </form>
         ) : (
-          <div className="top-nav">
-            <button className="btn-add" onClick={this.showForm}>
-              +
-            </button>
-          </div>
+          <div className="top-nav"></div>
         )}
         <div className="bottom-nav">
           <img alt="icon" src={Exit} className="icon-main" />
-          <img alt="icon" src={Circle} className="icon-main" />
+          <button className="btn-add" onClick={this.showForm}>
+            +
+          </button>
           <img alt="icon" src={Share} className="icon-main" />
         </div>
       </div>

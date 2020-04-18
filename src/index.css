@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Exo+2&display=swap");
 
 :root {
-  --main: rgb(28, 39, 54);
-  --secondery1: rgb(48, 62, 82);
-  --secondery2: rgb(101, 228, 107);
+  --main: rgb(26, 27, 27);
+  --secondery1: rgb(26, 27, 27);
+  --secondery2: rgb(253, 122, 0);
+  --secondery3: rgb(255, 123, 0);
 }
 
 body {
@@ -12,7 +13,7 @@ body {
   background: var(--main);
   text-align: center;
   margin: 1em auto;
-  color: var(--secondery1);
+  color: var(--secondery2);
 }
 
 .login-form {
@@ -33,6 +34,7 @@ body {
   border-radius: 10px;
   outline: none;
   color: white;
+  box-shadow: 3px 0px 8px 2px black;
 }
 
 .input-form2 {
@@ -77,7 +79,7 @@ body {
   background: var(--secondery1);
   display: flex;
   justify-content: space-evenly;
-  height: 5vh;
+  height: 7vh;
 }
 
 .btn-add {
@@ -87,6 +89,7 @@ body {
   height: 50px;
   padding: 0.5em;
   font-size: 1em;
+  margin-top: 8px;
   border: none;
   background: var(--secondery2);
   outline: none;
@@ -101,16 +104,10 @@ body {
   padding: 0.5em;
   font-size: 1em;
   border: none;
-  background: var(--secondery2);
+  background: var(--secondery1);
   outline: none;
   color: white;
   cursor: pointer;
-}
-
-.top-nav {
-  width: 100%;
-  position: fixed;
-  bottom: 10vh;
 }
 
 .main-task-control {
@@ -126,7 +123,7 @@ body {
   margin: auto;
   margin-top: 1em;
   border: none;
-  background: rgb(71, 166, 197);
+  background: var(--secondery3);
   color: white;
   border-radius: 20px;
   box-shadow: 0 0px 8px 5px var(--secondery1);
@@ -141,7 +138,7 @@ body {
   margin: auto;
   margin-top: 1em;
   border: none;
-  background: rgb(71, 166, 197);
+  background: var(--secondery3);
   color: white;
   border-radius: 20px;
   box-shadow: 0 0px 8px 5px var(--secondery1);
