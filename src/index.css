@@ -3,8 +3,7 @@
 :root {
   --main: rgb(26, 27, 27);
   --secondery1: rgb(26, 27, 27);
-  --secondery2: rgb(253, 122, 0);
-  --secondery3: rgb(255, 123, 0);
+  --secondery2: rgb(252, 132, 19);
 }
 
 body {
@@ -137,7 +136,7 @@ body {
   margin: auto;
   margin-top: 1em;
   border: none;
-  background: var(--secondery3);
+  background: var(--secondery2);
   color: white;
   border-radius: 20px;
   box-shadow: 0 0px 8px 5px var(--secondery1);
@@ -152,7 +151,7 @@ body {
   margin: auto;
   margin-top: 1em;
   border: none;
-  background: var(--secondery3);
+  background: var(--secondery2);
   color: white;
   border-radius: 20px;
   box-shadow: 0 0px 8px 5px var(--secondery1);
@@ -196,12 +195,11 @@ body {
   font-family: "Exo 2", sans-serif;
   border: none;
   border-radius: 50%;
-  height: 28px;
-  width: 28px;
+  height: 20px;
+  width: 20px;
   cursor: pointer;
   background: var(--secondery1);
   color: var(--secondery2);
-  box-shadow: 0 0px 10px 10px var(--secondery1);
   float: right;
 }
 

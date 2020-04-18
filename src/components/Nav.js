@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Exit from "../icons/exit.png";
-import Share from "../icons/share.png";
 import firebase from "./Firebase";
 
 class Nav extends Component {
@@ -80,11 +78,11 @@ class Nav extends Component {
           <div className="top-nav"></div>
         )}
         <div className="bottom-nav">
-          <img alt="icon" src={Exit} className="icon-main" />
+          <p>Welcome,koren</p>
           <button className="btn-add" onClick={this.showForm}>
             +
           </button>
-          <img alt="icon" src={Share} className="icon-main" />
+          <p>Share Task</p>
         </div>
       </div>
     );
