@@ -8,7 +8,6 @@ class Main extends Component {
     taskId: undefined,
     clicked: false,
     mainTask: [],
-    isOn: false,
   };
 
   componentDidMount() {
@@ -46,15 +45,35 @@ class Main extends Component {
   }
 
   handleDelete = (item, main) => {
-    console.log(main.id);
-    console.log(item.id);
+    var array = main.list;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].id === item.id) {
+        array.splice(i, 1);
+      }
+    }
+    firebase
+      .firestore()
+      .collection("Main")
+      .doc(main.id)
+      .set({
+        name: main.name,
+        state: main.state,
+        status: main.status,
+        list: array,
+      })
+      .then(function () {
+        console.log("success");
+      })
+      .catch(function (error) {
+        console.error("Error", error);
+      });
+    this.getData();
   };
 
   handleChange = (e) => {
     this.setState({
       childitem: e.target.value,
     });
-    console.log(this.state.childitem);
   };
 
   addListItem = (task) => {
@@ -131,7 +150,7 @@ class Main extends Component {
                   className="btn-dlt2"
                   onClick={() => this.handleDeleteMain(main)}
                 >
-                  Delete all list
+                  Delete all
                 </button>
               </div>
             ))}
