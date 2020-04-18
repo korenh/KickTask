@@ -14,15 +14,22 @@ class Nav extends Component {
     let vstate = e.target.elements.state.value;
     let vstatus = e.target.elements.status.value;
     let vlist = [];
-    firebase.firestore().collection("Main").add({
-      name: vname,
-      state: vstate,
-      status: vstatus,
-      list: vlist,
-    });
-    this.setState({
-      createNew: !this.state.createNew,
-    });
+    if (vname === "") {
+      alert("fill all the fields");
+      this.setState({
+        createNew: !this.state.createNew,
+      });
+    } else {
+      firebase.firestore().collection("Main").add({
+        name: vname,
+        state: vstate,
+        status: vstatus,
+        list: vlist,
+      });
+      this.setState({
+        createNew: !this.state.createNew,
+      });
+    }
   };
 
   showForm = () => {
@@ -43,19 +50,29 @@ class Nav extends Component {
               placeholder="name"
             />
             <br />
-            <input
-              name="state"
-              type="text"
-              className="input-form"
-              placeholder="state"
-            />{" "}
+            <select className="input-form-s" name="state">
+              <option className="form-input-s" selected value="critical">
+                critical
+              </option>
+              <option className="form-option" value="minor">
+                minor
+              </option>
+              <option className="form-option" value="middle">
+                middle
+              </option>
+            </select>
             <br />
-            <input
-              name="status"
-              type="text"
-              className="input-form"
-              placeholder="status"
-            />{" "}
+            <select className="input-form-s" name="status">
+              <option className="form-input-s" selected value="done">
+                done
+              </option>
+              <option className="form-option" value="pending">
+                pending
+              </option>
+              <option className="form-option" value="in progress">
+                in progress
+              </option>
+            </select>
             <br />
             <button className="btn-form">Add</button>
           </form>
