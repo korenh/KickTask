@@ -98,6 +98,10 @@ body {
   height: 7vh;
 }
 
+.bottom-nav p {
+  width: 150px;
+}
+
 .btn-add {
   font-family: "Exo 2", sans-serif;
   border-radius: 50%;
