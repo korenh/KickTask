@@ -138,16 +138,16 @@ class Main extends Component {
               onClick={() => this.handleClick(main)}
               key={main.id}
             >
+              <div className="content-flex">
+                <h3>{main.name} </h3>
+                <p>Tasks | {main.list.length}</p>
+              </div>
               <button
                 className="btn-dlt2"
                 onClick={() => this.handleDeleteMain(main)}
               >
                 x
               </button>
-              <p>{main.name}</p>
-              <p>Tasks | {main.list.length}</p>
-              <p>{main.state}</p>
-              <p>{main.status}</p>
             </div>
           ))}
         </div>

@@ -130,6 +130,11 @@ body {
   cursor: pointer;
 }
 
+.content-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 .main-task-control {
   display: flex;
   flex-flow: wrap;
@@ -138,7 +143,7 @@ body {
 
 .main-task {
   text-align: left;
-  width: 33%;
+  width: 85%;
   padding: 1em;
   margin: auto;
   margin-top: 1em;
@@ -146,7 +151,7 @@ body {
   background: var(--secondery2);
   color: white;
   border-radius: 10px;
-  border-bottom-right-radius: 60%;
+  border-bottom-right-radius: 70%;
   box-shadow: 0 0px 8px 5px var(--secondery1);
   word-break: break-all;
   cursor: pointer;
@@ -154,7 +159,7 @@ body {
 
 .chosen-task {
   text-align: left;
-  width: 84%;
+  width: 85%;
   padding: 1em;
   margin: auto;
   margin-top: 1em;
