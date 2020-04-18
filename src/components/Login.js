@@ -1,20 +1,46 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import firebase from "./Firebase";
 
 export default class Login extends Component {
+  handleLogin = (e) => {
+    e.preventDefault();
+    let email = e.target.elements.email.value;
+    let password = e.target.elements.password.value;
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        window.location.replace("/main");
+      })
+      .catch(function (error) {
+        var errorMessage = error.message;
+        alert(errorMessage);
+      });
+  };
+
   render() {
     return (
-      <div className="login-form">
+      <form className="login-form" onSubmit={this.handleLogin}>
         <h1>KICKTASK</h1>
         <br />
-        <input type="text" className="input-form" placeholder="Name" />
+        <input
+          type="text"
+          className="input-form"
+          placeholder="email"
+          name="email"
+        />
         <br />
-        <input type="text" className="input-form" placeholder="Password" />
+        <input
+          type="text"
+          className="input-form"
+          placeholder="Password"
+          name="password"
+        />
         <br />
-        <Link to="/main">
-          <button className="btn-form">LOGIN</button>
-        </Link>
-      </div>
+        <button className="btn-form">LOGIN</button>
+      </form>
     );
   }
 }
