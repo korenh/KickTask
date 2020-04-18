@@ -8,9 +8,14 @@ class Main extends Component {
     taskId: undefined,
     clicked: false,
     mainTask: [],
+    isOn: false,
   };
 
   componentDidMount() {
+    this.getData();
+  }
+
+  getData = () => {
     const allData = [];
     firebase
       .firestore()
@@ -29,7 +34,7 @@ class Main extends Component {
         });
         this.setState({ mainTask: allData });
       });
-  }
+  };
 
   handleDeleteMain(main) {
     firebase.firestore().collection("Main").doc(main.id).delete();
@@ -149,7 +154,7 @@ class Main extends Component {
             </div>
           ))}
         </div>
-        <Nav />
+        <Nav isOn={this.getData} />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import firebase from "./Firebase";
 
-class Nav extends Component {
+export default class Nav extends Component {
   state = {
     createNew: false,
   };
@@ -27,6 +27,7 @@ class Nav extends Component {
       this.setState({
         createNew: !this.state.createNew,
       });
+      this.props.isOn();
     }
   };
 
@@ -80,5 +81,3 @@ class Nav extends Component {
     );
   }
 }
-
-export default Nav;
