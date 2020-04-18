@@ -84,7 +84,6 @@ class Main extends Component {
   render() {
     return this.state.clicked ? (
       <div>
-        <h1>KICKTASK</h1>
         <div className="main-task-control">
           {this.state.mainTask
             .filter((main) => main.id === this.state.taskId)
@@ -96,7 +95,7 @@ class Main extends Component {
                 >
                   Back
                 </button>
-                <p>{main.name}</p>
+                <h3>{main.name}</h3>
                 <div>
                   <input
                     type="text"
@@ -130,7 +129,6 @@ class Main extends Component {
       </div>
     ) : (
       <div>
-        <h1>KICKTASK</h1>
         <div className="main-task-control">
           {this.state.mainTask.map((main) => (
             <div
