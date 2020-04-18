@@ -96,9 +96,7 @@ class Main extends Component {
                 >
                   Back
                 </button>
-                <p>
-                  {main.name} | {main.taskCount}
-                </p>
+                <p>{main.name}</p>
                 <div>
                   <input
                     type="text"
@@ -140,15 +138,16 @@ class Main extends Component {
               onClick={() => this.handleClick(main)}
               key={main.id}
             >
-              <p>{main.name}</p>
-              <p>{main.state}</p>
-              <p>{main.status}</p>
               <button
-                className="btn-back"
+                className="btn-dlt2"
                 onClick={() => this.handleDeleteMain(main)}
               >
                 x
               </button>
+              <p>{main.list.length}</p>
+              <p>{main.name}</p>
+              <p>{main.state}</p>
+              <p>{main.status}</p>
             </div>
           ))}
         </div>
