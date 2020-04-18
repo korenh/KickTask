@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Exo+2&display=swap");
 
 :root {
-  --main: rgb(26, 27, 27);
-  --secondery1: rgb(26, 27, 27);
-  --secondery2: rgb(252, 132, 19);
-  --secondery3: rgb(34, 34, 34);
+  --main: rgb(14, 26, 71);
+  --secondery3: rgb(91, 2, 254);
+  --secondery4: rgb(25, 55, 206);
+  --secondery5: rgb(207, 207, 207);
 }
 
 body {
@@ -13,10 +13,11 @@ body {
   background: var(--main);
   text-align: center;
   margin: 1em auto;
-  color: var(--secondery2);
+  color: var(--secondery4);
 }
 
 .login-form {
+  color: var(--secondery3);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -34,7 +35,7 @@ body {
   border-radius: 10px;
   outline: none;
   color: white;
-  box-shadow: 3px 0px 8px 6px rgb(22, 22, 22);
+  box-shadow: 3px 0px 5px 1px var(--secondery3);
 }
 
 .input-form-s {
@@ -48,7 +49,7 @@ body {
   border-radius: 10px;
   outline: none;
   color: white;
-  box-shadow: 3px 0px 8px 6px rgb(22, 22, 22);
+  box-shadow: 3px 0px 5px 1px var(--secondery3);
 }
 
 .input-form2 {
@@ -61,7 +62,7 @@ body {
   background: none;
   outline: none;
   color: white;
-  border-bottom: 1px solid var(--secondery1);
+  border-bottom: 1px solid var(--secondery4);
 }
 
 .btn-form {
@@ -70,7 +71,7 @@ body {
   padding: 1em;
   font-size: 1em;
   border: none;
-  background: var(--secondery2);
+  background: var(--secondery3);
   border-radius: 10px;
   outline: none;
   color: white;
@@ -92,13 +93,15 @@ body {
   bottom: 0;
   border-top-left-radius: 30%;
   border-top-right-radius: 30%;
-  background: var(--secondery3);
   display: flex;
   justify-content: space-evenly;
   height: 7vh;
+  background: linear-gradient(to right, var(--secondery3), var(--secondery4));
 }
 
 .bottom-nav p {
+  color: var(--secondery5);
+  font-weight: bold;
   width: 150px;
 }
 
@@ -111,11 +114,11 @@ body {
   font-size: 1em;
   margin-top: 8px;
   border: none;
-  background: var(--secondery2);
+  background: var(--main);
   outline: none;
-  color: white;
+  color: var(--secondery4);
   cursor: pointer;
-  box-shadow: 0px 0px 18px 5px var(--secondery2);
+  box-shadow: 0px 0px 18px 5px var(--main);
 }
 
 .btn-add2 {
@@ -124,7 +127,7 @@ body {
   padding: 0.5em;
   font-size: 1em;
   border: none;
-  background: var(--secondery1);
+  background: var(--secondery4);
   outline: none;
   color: white;
   cursor: pointer;
@@ -144,15 +147,14 @@ body {
 .main-task {
   text-align: left;
   width: 85%;
-  padding: 1em;
+  padding: 0.5em;
   margin: auto;
   margin-top: 1em;
   border: none;
   background: var(--secondery2);
-  color: white;
+  color: var(--secondery4);
   border-radius: 10px;
-  border-bottom-right-radius: 70%;
-  box-shadow: 0 0px 8px 5px var(--secondery1);
+  box-shadow: 0 20px 20px 0px var(--secondery3);
   word-break: break-all;
   cursor: pointer;
 }
@@ -160,14 +162,14 @@ body {
 .chosen-task {
   text-align: left;
   width: 85%;
-  padding: 1em;
+  padding: 0.5em;
   margin: auto;
   margin-top: 1em;
   border: none;
   background: var(--secondery2);
-  color: white;
+  color: var(--secondery4);
   border-radius: 10px;
-  box-shadow: 0 0px 8px 5px var(--secondery1);
+  box-shadow: 0 20px 20px 0px var(--secondery3);
   word-break: break-all;
   cursor: pointer;
 }
@@ -175,7 +177,7 @@ body {
 .list-item {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--secondery1);
+  border-bottom: 1px solid var(--secondery4);
 }
 
 .dlt-tsk {
@@ -198,7 +200,7 @@ body {
   padding: 0.5em;
   margin: 1em;
   cursor: pointer;
-  background: var(--secondery1);
+  background: var(--secondery4);
   float: right;
   color: white;
 }
@@ -206,11 +208,9 @@ body {
 .btn-dlt2 {
   font-family: "Exo 2", sans-serif;
   border: none;
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
   cursor: pointer;
-  background: var(--secondery1);
+  background: none;
+  font-size: 1.2em;
   color: var(--secondery2);
   float: right;
 }
