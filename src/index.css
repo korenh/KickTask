@@ -145,7 +145,7 @@ body {
   border: none;
   background: var(--secondery2);
   color: white;
-  border-radius: 20px;
+  border-radius: 30%;
   box-shadow: 0 0px 8px 5px var(--secondery1);
   word-break: break-all;
   cursor: pointer;
