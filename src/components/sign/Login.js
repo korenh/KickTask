@@ -12,9 +12,9 @@ export default class Login extends Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
+        sessionStorage.setItem("id", email);
         Auth.login(() => {
           this.props.history.push("/main");
-          sessionStorage.setItem("id", email);
         });
       })
       .catch(function (error) {
