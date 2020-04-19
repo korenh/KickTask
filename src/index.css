@@ -151,6 +151,7 @@ body {
 .main-task {
   text-align: left;
   width: 85%;
+  max-width: 500px;
   padding: 0.5em;
   margin: auto;
   margin-top: 1em;
@@ -164,6 +165,7 @@ body {
 }
 
 .chosen-task {
+  max-width: 800px;
   text-align: left;
   width: 85%;
   padding: 0.5em;

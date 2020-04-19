@@ -231,6 +231,9 @@ class Main extends Component {
             >
               <div className="content-flex">
                 <h3>{main.name} </h3>
+                {this.state.counter === main.list.length
+                  ? "cmopleted"
+                  : "In progress"}
                 <p>
                   {this.state.counter}/{main.list.length}
                 </p>
