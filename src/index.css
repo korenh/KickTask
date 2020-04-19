@@ -245,3 +245,7 @@ body {
   justify-content: flex-end;
   width: 75px;
 }
+
+.content-flex h3 {
+  width: 70%;
+}
