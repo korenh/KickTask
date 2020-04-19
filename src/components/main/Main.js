@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
-import firebase from "./Firebase";
+import firebase from "../protected/Firebase";
 
-class Main extends Component {
+export default class Main extends Component {
   //--------------------------------------states ----------------------------------//
 
   state = {
@@ -53,7 +53,7 @@ class Main extends Component {
     this.componentDidMount();
   }
 
-  //--------------------------------------handle delte item ----------------------------------//
+  //--------------------------------------handle delete item ----------------------------------//
 
   handleDelete = (item, main) => {
     var array = main.list;
@@ -261,5 +261,3 @@ class Main extends Component {
     );
   }
 }
-
-export default Main;

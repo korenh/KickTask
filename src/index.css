@@ -249,3 +249,10 @@ body {
 .content-flex h3 {
   width: 50%;
 }
+
+.link-style {
+  margin: 1em;
+  text-decoration: none;
+  color: white;
+  float: left;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import firebase from "./Firebase";
+import firebase from "../protected/Firebase";
 
 export default class Nav extends Component {
   state = {

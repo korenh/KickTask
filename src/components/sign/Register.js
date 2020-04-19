@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import firebase from "./Firebase";
+import firebase from "../protected/Firebase";
 
-export default class Login extends Component {
-  handleLogin = (e) => {
+export default class Register extends Component {
+  handleRegister = (e) => {
     e.preventDefault();
     let email = e.target.elements.email.value;
     let password = e.target.elements.password.value;
-
+    firebase.auth();
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then((response) => {
-        window.location.replace("/main");
+        alert("SignedUp");
+        this.props.history.push("/");
       })
       .catch(function (error) {
         var errorMessage = error.message;
@@ -22,7 +23,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <form className="login-form">
+      <form className="login-form" onSubmit={this.handleRegister}>
         <h1>KICKTASK</h1>
         <br />
         <input
@@ -39,8 +40,10 @@ export default class Login extends Component {
           name="password"
         />
         <br />
-        <Link to="/main">
-          <button className="btn-form">LOGIN</button>
+        <button className="btn-form">Register</button>
+        <br />
+        <Link to="/" className="link-style">
+          Login
         </Link>
       </form>
     );
