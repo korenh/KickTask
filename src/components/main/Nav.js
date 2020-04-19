@@ -17,7 +17,7 @@ export default class Nav extends Component {
         createNew: !this.state.createNew,
       });
     } else {
-      firebase.firestore().collection("Main").add({
+      firebase.firestore().collection(sessionStorage.getItem("id")).add({
         name: vname,
         state: vstate,
         status: "unavailable",

@@ -25,7 +25,7 @@ export default class Main extends Component {
     const allData = [];
     firebase
       .firestore()
-      .collection("Main")
+      .collection(sessionStorage.getItem("id"))
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
@@ -45,7 +45,11 @@ export default class Main extends Component {
   //--------------------------------------handle delete list ----------------------------------//
 
   handleDeleteMain(main) {
-    firebase.firestore().collection("Main").doc(main.id).delete();
+    firebase
+      .firestore()
+      .collection(sessionStorage.getItem("id"))
+      .doc(main.id)
+      .delete();
     alert("Deleted" + main.id);
     this.setState({
       clicked: false,
@@ -64,7 +68,7 @@ export default class Main extends Component {
     }
     firebase
       .firestore()
-      .collection("Main")
+      .collection(sessionStorage.getItem("id"))
       .doc(main.id)
       .set({
         name: main.name,
@@ -100,7 +104,7 @@ export default class Main extends Component {
     });
     firebase
       .firestore()
-      .collection("Main")
+      .collection(sessionStorage.getItem("id"))
       .doc(task.id)
       .set({
         name: task.name,
@@ -136,7 +140,7 @@ export default class Main extends Component {
       }
       firebase
         .firestore()
-        .collection("Main")
+        .collection(sessionStorage.getItem("id"))
         .doc(main.id)
         .set({
           name: main.name,

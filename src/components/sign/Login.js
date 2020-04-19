@@ -14,6 +14,7 @@ export default class Login extends Component {
       .then((response) => {
         Auth.login(() => {
           this.props.history.push("/main");
+          sessionStorage.setItem("id", email);
         });
       })
       .catch(function (error) {
