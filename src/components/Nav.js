@@ -10,7 +10,6 @@ export default class Nav extends Component {
     e.preventDefault();
     let vname = e.target.elements.name.value;
     let vstate = e.target.elements.state.value;
-    let vstatus = e.target.elements.status.value;
     let vlist = [];
     if (vname === "") {
       alert("fill all the fields");
@@ -21,7 +20,7 @@ export default class Nav extends Component {
       firebase.firestore().collection("Main").add({
         name: vname,
         state: vstate,
-        status: vstatus,
+        status: "unavailable",
         list: vlist,
       });
       this.setState({
@@ -55,14 +54,6 @@ export default class Nav extends Component {
               </option>
               <option value="minor">minor</option>
               <option value="middle">middle</option>
-            </select>
-            <br />
-            <select className="input-form-s" name="status">
-              <option selected value="done">
-                done
-              </option>
-              <option value="pending">pending</option>
-              <option value="in progress">in progress</option>
             </select>
             <br />
             <button className="btn-form">Add</button>
