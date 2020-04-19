@@ -62,7 +62,7 @@ export default class Nav extends Component {
           <div className="top-nav"></div>
         )}
         <div className="bottom-nav">
-          <p>Welcome,koren</p>
+          <p>{sessionStorage.getItem("id")}</p>
           <button className="btn-add" onClick={this.showForm}>
             +
           </button>
