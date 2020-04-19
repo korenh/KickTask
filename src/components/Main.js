@@ -3,16 +3,24 @@ import Nav from "./Nav";
 import firebase from "./Firebase";
 
 class Main extends Component {
+  //--------------------------------------states ----------------------------------//
+
   state = {
     listChild: undefined,
     taskId: undefined,
     clicked: false,
     mainTask: [],
+    selectedOption: false,
+    counter: 0,
   };
+
+  //--------------------------------------componentDidMount ----------------------------------//
 
   componentDidMount() {
     this.getData();
   }
+
+  //--------------------------------------handle get data ----------------------------------//
 
   getData = () => {
     const allData = [];
@@ -35,6 +43,8 @@ class Main extends Component {
       });
   };
 
+  //--------------------------------------handle delete list ----------------------------------//
+
   handleDeleteMain(main) {
     firebase.firestore().collection("Main").doc(main.id).delete();
     alert("Deleted" + main.id);
@@ -43,6 +53,8 @@ class Main extends Component {
     });
     this.componentDidMount();
   }
+
+  //--------------------------------------handle delte item ----------------------------------//
 
   handleDelete = (item, main) => {
     var array = main.list;
@@ -70,15 +82,23 @@ class Main extends Component {
     this.getData();
   };
 
+  //--------------------------------------handle input change ----------------------------------//
+
   handleChange = (e) => {
     this.setState({
       childitem: e.target.value,
     });
   };
 
+  //--------------------------------------handle add item ----------------------------------//
+
   addListItem = (task) => {
     let arr = task.list;
-    arr.push({ id: task.list.length, content: this.state.childitem });
+    arr.push({
+      id: task.list.length,
+      content: this.state.childitem,
+      isChecked: false,
+    });
     firebase
       .firestore()
       .collection("Main")
@@ -98,12 +118,44 @@ class Main extends Component {
     this.componentDidMount();
   };
 
+  //--------------------------------------handle open list ----------------------------------//
+
   handleClick = (task) => {
     this.setState({
       clicked: !this.state.clicked,
       taskId: task.id,
     });
   };
+
+  //--------------------------------------handle check ----------------------------------//
+
+  handleCheck = (item, main) => {
+    var array = main.list;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].id === item.id) {
+        array[i].isChecked = !item.isChecked;
+      }
+      firebase
+        .firestore()
+        .collection("Main")
+        .doc(main.id)
+        .set({
+          name: main.name,
+          state: main.state,
+          status: main.status,
+          list: array,
+        })
+        .then(function () {
+          console.log("success");
+        })
+        .catch(function (error) {
+          console.error("Error", error);
+        });
+      this.getData();
+    }
+  };
+
+  //-------------------------------------- render page  ----------------------------------//
 
   render() {
     return this.state.clicked ? (
@@ -136,13 +188,24 @@ class Main extends Component {
                 <div>
                   {main.list.map((item) => (
                     <div className="list-item">
-                      <p>{item.content}</p>
-                      <button
-                        className="dlt-tsk"
-                        onClick={() => this.handleDelete(item, main)}
-                      >
-                        x
-                      </button>
+                      {item.isChecked ? (
+                        <p className="item-checked">{item.content}</p>
+                      ) : (
+                        <p>{item.content}</p>
+                      )}
+                      <div>
+                        <button
+                          className="dlt-tsk"
+                          onClick={() => this.handleDelete(item, main)}
+                        >
+                          x
+                        </button>
+                        <input
+                          type="checkbox"
+                          checked={item.isChecked}
+                          onChange={() => this.handleCheck(item, main)}
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -168,7 +231,9 @@ class Main extends Component {
             >
               <div className="content-flex">
                 <h3>{main.name} </h3>
-                <p>Tasks | {main.list.length}</p>
+                <p>
+                  {this.state.counter}/{main.list.length}
+                </p>
               </div>
             </div>
           ))}
