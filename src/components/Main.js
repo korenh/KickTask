@@ -193,7 +193,7 @@ class Main extends Component {
                       ) : (
                         <p>{item.content}</p>
                       )}
-                      <div>
+                      <div className="item-functions">
                         <button
                           className="dlt-tsk"
                           onClick={() => this.handleDelete(item, main)}
@@ -232,7 +232,7 @@ class Main extends Component {
               <div className="content-flex">
                 <h3>{main.name} </h3>
                 {this.state.counter === main.list.length
-                  ? "cmopleted"
+                  ? "Cmopleted"
                   : "In progress"}
                 <p>
                   {this.state.counter}/{main.list.length}
