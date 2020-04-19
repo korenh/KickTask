@@ -11,7 +11,6 @@ class Main extends Component {
     clicked: false,
     mainTask: [],
     selectedOption: false,
-    counter: 0,
   };
 
   //--------------------------------------componentDidMount ----------------------------------//
@@ -155,10 +154,24 @@ class Main extends Component {
     }
   };
 
+  //-------------------------------------- hanle isChecked true count ----------------------------------//
+
+  handleCalc = (list) => {
+    var count = 0;
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].isChecked === true) {
+        count = count + 1;
+      }
+    }
+    return count;
+  };
+
   //-------------------------------------- render page  ----------------------------------//
 
   render() {
     return this.state.clicked ? (
+      //-------------------------------------- chosen list  ----------------------------------//
+
       <div>
         <div className="main-task-control">
           {this.state.mainTask
@@ -221,6 +234,8 @@ class Main extends Component {
         <Nav />
       </div>
     ) : (
+      //-------------------------------------- all Lists  ----------------------------------//
+
       <div>
         <div className="main-task-control">
           {this.state.mainTask.map((main) => (
@@ -231,11 +246,11 @@ class Main extends Component {
             >
               <div className="content-flex">
                 <h3>{main.name} </h3>
-                {this.state.counter === main.list.length
+                {this.handleCalc(main.list) === main.list.length
                   ? "Cmopleted"
                   : "In progress"}
                 <p>
-                  {this.state.counter}/{main.list.length}
+                  {this.handleCalc(main.list)}/{main.list.length}
                 </p>
               </div>
             </div>
