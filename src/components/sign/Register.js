@@ -7,7 +7,6 @@ export default class Register extends Component {
     e.preventDefault();
     let email = e.target.elements.email.value;
     let password = e.target.elements.password.value;
-    firebase.auth();
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
