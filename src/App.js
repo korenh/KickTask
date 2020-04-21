@@ -3,7 +3,7 @@ import Login from "./components//sign/Login";
 import Register from "./components/sign/Register";
 import Main from "./components/main/Main";
 import { Protected } from "./components/protected/Protected";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 export default class App extends Component {
   render() {
@@ -12,6 +12,7 @@ export default class App extends Component {
         <Route exact path="/" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/main" component={Main} />
+        <Redirect to="/" />
       </Router>
     );
   }
