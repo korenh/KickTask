@@ -249,14 +249,14 @@ body {
   float: right;
 }
 
-.form-main-add {
+.form-main {
+  padding-top: 2em;
+  padding-bottom: 2em;
   border-radius: 50px;
   width: 100%;
   background: var(--main);
   position: fixed;
-  top: 60vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0vh;
   box-shadow: 0 0px 10px 10px var(--secondery1);
 }
 
@@ -280,4 +280,8 @@ body {
   text-decoration: none;
   color: white;
   float: left;
+}
+
+.p-click {
+  cursor: pointer;
 }

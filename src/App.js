@@ -11,7 +11,7 @@ export default class App extends Component {
       <Router>
         <Route exact path="/" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/main" component={Main} />
+        <Protected path="/main" component={Main} />
         <Redirect to="/" />
       </Router>
     );

@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import firebase from "../protected/Firebase";
+import Member from "./more/Member";
+import Account from "./more/Account";
 
 export default class Nav extends Component {
   state = {
     createNew: false,
+    membersPage: false,
+    accountPage: false,
   };
 
   addData = async (e) => {
@@ -33,6 +37,24 @@ export default class Nav extends Component {
   showForm = () => {
     this.setState({
       createNew: !this.state.createNew,
+      accountPage: false,
+      membersPage: false,
+    });
+  };
+
+  members = () => {
+    this.setState({
+      membersPage: !this.state.membersPage,
+      accountPage: false,
+      createNew: false,
+    });
+  };
+
+  account = () => {
+    this.setState({
+      accountPage: !this.state.accountPage,
+      membersPage: false,
+      createNew: false,
     });
   };
 
@@ -40,7 +62,7 @@ export default class Nav extends Component {
     return (
       <div className="nav-main">
         {this.state.createNew ? (
-          <form className="form-main-add" onSubmit={this.addData}>
+          <form className="form-main" onSubmit={this.addData}>
             <input
               name="name"
               type="text"
@@ -59,14 +81,20 @@ export default class Nav extends Component {
             <button className="btn-form">Add</button>
           </form>
         ) : (
-          <div className="top-nav"></div>
+          ""
         )}
+        {this.state.membersPage ? <Member /> : ""}
+        {this.state.accountPage ? <Account /> : ""}
         <div className="bottom-nav">
-          <p>{sessionStorage.getItem("id")}</p>
+          <p className="p-click" onClick={this.account}>
+            Account
+          </p>
           <button className="btn-add" onClick={this.showForm}>
             +
           </button>
-          <p>Share Task</p>
+          <p onClick={this.members} className="p-click">
+            Members
+          </p>
         </div>
       </div>
     );
