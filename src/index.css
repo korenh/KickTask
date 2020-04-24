@@ -35,6 +35,9 @@ body {
   outline: none;
   color: white;
   border-bottom: 2px solid var(--secondery4);
+  -webkit-animation: scale-up-hor-center 0.4s
+    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-hor-center 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 .input-form-s {
@@ -77,6 +80,9 @@ body {
   cursor: pointer;
   width: 328px;
   font-weight: bold;
+  -webkit-animation: scale-up-hor-center 0.4s
+    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-hor-center 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 .btn-form:hover {
   filter: brightness(1.4);
@@ -91,6 +97,9 @@ body {
 }
 
 .bottom-nav {
+  -webkit-animation: scale-up-hor-center 0.4s
+    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-hor-center 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -158,6 +167,9 @@ body {
 }
 
 .main-task {
+  -webkit-animation: scale-up-hor-center 0.4s
+    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-hor-center 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   text-align: left;
   width: 85%;
   max-width: 500px;
@@ -181,6 +193,9 @@ body {
 }
 
 .chosen-task {
+  -webkit-animation: scale-up-hor-center 0.4s
+    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-hor-center 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   max-width: 800px;
   text-align: left;
   width: 85%;
@@ -210,6 +225,9 @@ body {
 }
 
 .list-item {
+  -webkit-animation: scale-up-hor-center 0.4s
+    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-hor-center 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   display: flex;
   justify-content: space-between;
   border-bottom: 3px solid var(--main);
@@ -250,6 +268,9 @@ body {
 }
 
 .form-main {
+  -webkit-animation: scale-up-hor-center 0.4s
+    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-hor-center 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   padding-top: 2em;
   padding-bottom: 2em;
   border-radius: 50px;
@@ -284,4 +305,30 @@ body {
 
 .p-click {
   cursor: pointer;
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-up-hor-center
+ * ----------------------------------------
+ */
+@-webkit-keyframes scale-up-hor-center {
+  0% {
+    -webkit-transform: scaleX(0.4);
+    transform: scaleX(0.4);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+@keyframes scale-up-hor-center {
+  0% {
+    -webkit-transform: scaleX(0.4);
+    transform: scaleX(0.4);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
 }
