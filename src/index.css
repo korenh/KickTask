@@ -186,9 +186,6 @@ body {
 }
 .main-task:hover {
   filter: brightness(1.2);
-  padding-top: 1em;
-  font-size: 1.2em;
-  padding-bottom: 1em;
   transition: 0.8s;
 }
 
@@ -217,10 +214,6 @@ body {
 
 .list-item:hover {
   filter: brightness(1.2);
-  width: 100%;
-  padding-top: 1em;
-  font-size: 1.2em;
-  padding-bottom: 1em;
   transition: 0.8s;
 }
 
