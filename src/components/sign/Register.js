@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../protected/Firebase";
+import Particles from "react-particles-js";
 
 export default class Register extends Component {
   handleRegister = (e) => {
@@ -24,7 +25,19 @@ export default class Register extends Component {
     return (
       <form className="login-form" onSubmit={this.handleRegister}>
         <h1>KICKTASK</h1>
-        <br />
+        <Particles
+          params={{
+            particles: {
+              number: {
+                value: 200,
+                density: {
+                  enable: true,
+                  value_area: 500,
+                },
+              },
+            },
+          }}
+        />
         <input
           type="text"
           className="input-form"

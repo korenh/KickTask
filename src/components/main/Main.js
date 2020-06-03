@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
 import firebase from "../protected/Firebase";
+import Particles from "react-particles-js";
 
 export default class Main extends Component {
   //--------------------------------------states ----------------------------------//
@@ -241,6 +242,20 @@ export default class Main extends Component {
       //-------------------------------------- all Lists  ----------------------------------//
 
       <div>
+        <Particles
+          style={{ position: "fixed" }}
+          params={{
+            particles: {
+              number: {
+                value: 200,
+                density: {
+                  enable: true,
+                  value_area: 1500,
+                },
+              },
+            },
+          }}
+        />
         <div className="main-task-control">
           {this.state.mainTask.map((main) => (
             <div
@@ -250,6 +265,7 @@ export default class Main extends Component {
             >
               <div className="content-flex">
                 <h3>{main.name} </h3>
+
                 {this.handleCalc(main.list) === main.list.length
                   ? "Cmopleted"
                   : "In progress"}
