@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import firebase from "../protected/Firebase";
 
 export default class Main extends Component {
-  //--------------------------------------states ----------------------------------//
+  //----------state----------//
 
   state = {
     listChild: undefined,
@@ -13,13 +13,13 @@ export default class Main extends Component {
     selectedOption: false,
   };
 
-  //--------------------------------------componentDidMount ----------------------------------//
+  //----------componentDidMount ----------//
 
   componentDidMount() {
     this.getData();
   }
 
-  //--------------------------------------handle get data ----------------------------------//
+  //----------handle get data ----------//
 
   getData = () => {
     const allData = [];
@@ -42,7 +42,7 @@ export default class Main extends Component {
       });
   };
 
-  //--------------------------------------handle delete list ----------------------------------//
+  //----------handle delete list ----------//
 
   handleDeleteMain(main) {
     firebase
@@ -57,7 +57,7 @@ export default class Main extends Component {
     this.componentDidMount();
   }
 
-  //--------------------------------------handle delete item ----------------------------------//
+  //----------handle delete item ----------//
 
   handleDelete = (item, main) => {
     var array = main.list;
@@ -85,15 +85,7 @@ export default class Main extends Component {
     this.getData();
   };
 
-  //--------------------------------------handle input change ----------------------------------//
-
-  handleChange = (e) => {
-    this.setState({
-      childitem: e.target.value,
-    });
-  };
-
-  //--------------------------------------handle add item ----------------------------------//
+  //----------handle add item ----------/
 
   addListItem = (task) => {
     let arr = task.list;
@@ -121,7 +113,7 @@ export default class Main extends Component {
     this.componentDidMount();
   };
 
-  //--------------------------------------handle open list ----------------------------------//
+  //----------handle open list----------//
 
   handleClick = (task) => {
     this.setState({
@@ -130,7 +122,7 @@ export default class Main extends Component {
     });
   };
 
-  //--------------------------------------handle check ----------------------------------//
+  //----------handle check----------//
 
   handleCheck = (item, main) => {
     var array = main.list;
@@ -158,7 +150,7 @@ export default class Main extends Component {
     }
   };
 
-  //-------------------------------------- hanle isChecked true count ----------------------------------//
+  //----------hanle isChecked true count----------//
 
   handleCalc = (list) => {
     var count = 0;
@@ -170,11 +162,11 @@ export default class Main extends Component {
     return count;
   };
 
-  //-------------------------------------- render page  ----------------------------------//
+  //----------render page  ----------//
 
   render() {
     return this.state.clicked ? (
-      //-------------------------------------- chosen list  ----------------------------------//
+      //----------chosen list----------//
 
       <div>
         <div className="main-task-control">
@@ -193,7 +185,12 @@ export default class Main extends Component {
                   <input
                     type="text"
                     className="input-form2"
-                    onChange={this.handleChange}
+                    value={this.state.childitem}
+                    onChange={(e) => {
+                      this.setState({
+                        childitem: e.target.value,
+                      });
+                    }}
                   />
                   <button
                     className="btn-add2"
@@ -238,7 +235,7 @@ export default class Main extends Component {
         <Nav />
       </div>
     ) : (
-      //-------------------------------------- all Lists  ----------------------------------//
+      //----------all Lists----------//
 
       <div>
         <div className="main-task-control">

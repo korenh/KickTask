@@ -169,7 +169,7 @@ body {
 .main-task-control {
   display: flex;
   flex-flow: wrap;
-  justify-content: start;
+  justify-content: flex-start;
   margin-bottom: 15vh;
 }
 
