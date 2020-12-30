@@ -2,6 +2,16 @@
 
 React application based google firebase in order to manage tasks
 
+## Config
+
+Go to google firebase to genearte your own config
+
+```javascript
+var firebaseConfig = {
+  "use your own config"
+};
+```
+
 ## To run application 
 
 From the root directory
