@@ -4,7 +4,7 @@ React application based google firebase in order to manage tasks
 
 ## Config
 
-Go to google firebase to genearte your own config
+Go to firebase to genearte your own config
 
 ```javascript
 var firebaseConfig = {
