@@ -1,49 +1,35 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React ,  { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import firebase from "../protected/Firebase";
 
-export default class Register extends Component {
-  handleRegister = (e) => {
-    e.preventDefault();
-    let email = e.target.elements.email.value;
-    let password = e.target.elements.password.value;
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
+export default function Register(){
+
+  const history = useHistory()
+  const [password , setPassword] = useState('')
+  const [email , setEmail] = useState('')
+
+  const handleRegister = (e) => {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((response) => {
         alert("SignedUp");
-        this.props.history.push("/");
+        history.push("/")
       })
       .catch(function (error) {
-        var errorMessage = error.message;
-        alert(errorMessage);
+        alert( error.message);
       });
   };
 
-  render() {
     return (
-      <form className="login-form" onSubmit={this.handleRegister}>
+      <div className="login-form">
         <h1>KICKTASK</h1>
-        <input
-          type="text"
-          className="input-form"
-          placeholder="email"
-          name="email"
-        />
+        <input type="text" className="input-form" placeholder="email" onChange={e=>setEmail(e.target.value)}/>
         <br />
-        <input
-          type="text"
-          className="input-form"
-          placeholder="Password"
-          name="password"
-        />
+        <input type="text" className="input-form" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
         <br />
-        <button className="btn-form">Register</button>
+        <button className="btn-form" onClick={e=>handleRegister(e)}>Register</button>
         <br />
-        <Link to="/" className="link-style">
-          Login
-        </Link>
-      </form>
+        <Link to="/" className="link-style">Login</Link>
+      </div>
     );
   }
-}
+
