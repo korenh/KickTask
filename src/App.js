@@ -1,9 +1,9 @@
 import React from "react";
-import Login from "./components//sign/Login";
-import Register from "./components/sign/Register";
-import Main from "./components/main/Main";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Main from "./components/Main";
 import Particles from "react-particles-js";
-import { Protected } from "./components/protected/Protected";
+import { Protected } from "./components/Protected";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 export default function App(){

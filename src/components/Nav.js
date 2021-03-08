@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import firebase from "../protected/Firebase";
+import firebase from "./Firebase";
 
 export default function Nav(props){
   

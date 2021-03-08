@@ -1,21 +1,22 @@
-import React ,  { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import firebase from "../protected/Firebase";
+import React, { useState } from "react";
+import { Link , useHistory } from "react-router-dom";
+import firebase from "./Firebase";
+import Auth from "./Auth";
 
-export default function Register(){
+export default function Login(){
 
   const history = useHistory()
   const [password , setPassword] = useState('')
   const [email , setEmail] = useState('')
 
-  const handleRegister = (e) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+  const handleLogin = (e) => { 
+    firebase.auth().signInWithEmailAndPassword(email, password)
       .then((response) => {
-        alert("SignedUp");
-        history.push("/")
+        sessionStorage.setItem("id", email);
+        Auth.login(() => {history.push("/main")})
       })
       .catch(function (error) {
-        alert( error.message);
+        alert(error.message);
       });
   };
 
@@ -26,9 +27,9 @@ export default function Register(){
         <br />
         <input type="text" className="input-form" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
         <br />
-        <button className="btn-form" onClick={e=>handleRegister(e)}>Register</button>
+        <button className="btn-form" onClick={e=>handleLogin(e)}>LOGIN</button>
         <br />
-        <Link to="/" className="link-style">Login</Link>
+        <Link to="/register" className="link-style">Register</Link>
       </div>
     );
   }
