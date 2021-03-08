@@ -10,7 +10,7 @@ export default function App(){
     return (
       <Router>
         <Particles className="Particles" 
-        params={{particles:{number:{value: 100,density:{enable: true,value_area: 2000,},},},}}
+        params={{particles:{number:{value: 50,density:{enable: true,value_area: 3000,},},},}}
         />
         <Route exact path="/" component={Login} />
         <Route path="/register" component={Register} />

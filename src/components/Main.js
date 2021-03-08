@@ -1,27 +1,19 @@
-import React, { Component } from "react";
+import React, { useEffect , useState } from "react";
 import Nav from "./Nav";
 import firebase from "./Firebase";
 
-export default class Main extends Component {
-  //----------state----------//
+export default function Main(){
 
-  state = {
-    listChild: undefined,
-    taskId: undefined,
-    clicked: false,
-    mainTask: [],
-    selectedOption: false,
-  };
+  const [taskId , setTaskId] = useState('')
+  const [clicked , setClicked] = useState(false)
+  const [mainTask , setMainTask] = useState([])
+  const [childitem , setChilditem] = useState('')
 
-  //----------componentDidMount ----------//
+  useEffect(() => {
+    getData()
+  },[])
 
-  componentDidMount() {
-    this.getData();
-  }
-
-  //----------handle get data ----------//
-
-  getData = () => {
+  const getData = () => {
     const allData = [];
     firebase
       .firestore()
@@ -38,28 +30,22 @@ export default class Main extends Component {
           };
           allData.push(data);
         });
-        this.setState({ mainTask: allData });
+        setMainTask(allData)
       });
   };
 
-  //----------handle delete list ----------//
-
-  handleDeleteMain(main) {
+  const handleDeleteMain = (main) => {
     firebase
       .firestore()
       .collection(sessionStorage.getItem("id"))
       .doc(main.id)
       .delete();
     alert("Deleted" + main.id);
-    this.setState({
-      clicked: false,
-    });
-    this.componentDidMount();
+    setClicked(false)
+    getData()
   }
 
-  //----------handle delete item ----------//
-
-  handleDelete = (item, main) => {
+  const handleDelete = (item, main) => {
     var array = main.list;
     for (let i = 0; i < array.length; i++) {
       if (array[i].id === item.id) {
@@ -82,16 +68,14 @@ export default class Main extends Component {
       .catch(function (error) {
         console.error("Error", error);
       });
-    this.getData();
+    getData();
   };
 
-  //----------handle add item ----------/
-
-  addListItem = (task) => {
+  const addListItem = (task) => {
     let arr = task.list;
     arr.push({
       id: task.list.length,
-      content: this.state.childitem,
+      content: childitem,
       isChecked: false,
     });
     firebase
@@ -110,21 +94,15 @@ export default class Main extends Component {
       .catch(function (error) {
         console.error("Error", error);
       });
-    this.componentDidMount();
+    getData()
   };
 
-  //----------handle open list----------//
-
-  handleClick = (task) => {
-    this.setState({
-      clicked: !this.state.clicked,
-      taskId: task.id,
-    });
+  const handleClick = (task) => {
+    setClicked(!clicked)
+    setTaskId(task.id)
   };
 
-  //----------handle check----------//
-
-  handleCheck = (item, main) => {
+  const handleCheck = (item, main) => {
     var array = main.list;
     for (let i = 0; i < array.length; i++) {
       if (array[i].id === item.id) {
@@ -146,13 +124,11 @@ export default class Main extends Component {
         .catch(function (error) {
           console.error("Error", error);
         });
-      this.getData();
+      getData();
     }
   };
 
-  //----------hanle isChecked true count----------//
-
-  handleCalc = (list) => {
+  const handleCalc = (list) => {
     var count = 0;
     for (let i = 0; i < list.length; i++) {
       if (list[i].isChecked === true) {
@@ -162,104 +138,50 @@ export default class Main extends Component {
     return count;
   };
 
-  //----------render page  ----------//
-
-  render() {
-    return this.state.clicked ? (
-      //----------chosen list----------//
-
+    return clicked ? (
       <div>
         <div className="main-task-control">
-          {this.state.mainTask
-            .filter((main) => main.id === this.state.taskId)
-            .map((main) => (
+          {mainTask.filter((main) => main.id === taskId).map((main) => (
               <div className="chosen-task">
-                <button
-                  onClick={() => this.handleClick(main)}
-                  className="btn-back"
-                >
-                  Back
-                </button>
+                <button onClick={() => handleClick(main)}className="btn-back">Back</button>
                 <h3>{main.name}</h3>
                 <div>
-                  <input
-                    type="text"
-                    className="input-form2"
-                    value={this.state.childitem}
-                    onChange={(e) => {
-                      this.setState({
-                        childitem: e.target.value,
-                      });
-                    }}
-                  />
-                  <button
-                    className="btn-add2"
-                    onClick={() => this.addListItem(main)}
-                  >
-                    Add
-                  </button>
+                  <input type="text" className="input-form2" value={childitem}
+                    onChange={(e) => setChilditem(e.target.value)}/>
+                  <button className="btn-add2" onClick={() => addListItem(main)}>Add</button>
                 </div>
                 <div>
                   {main.list.map((item) => (
                     <div className="list-item">
-                      {item.isChecked ? (
-                        <p className="item-checked">{item.content}</p>
-                      ) : (
-                        <p>{item.content}</p>
-                      )}
+                    {item.isChecked ? (<p className="item-checked">{item.content}</p>):(<p>{item.content}</p>)}
                       <div className="item-functions">
-                        <button
-                          className="dlt-tsk"
-                          onClick={() => this.handleDelete(item, main)}
-                        >
-                          x
-                        </button>
-                        <input
-                          type="checkbox"
-                          checked={item.isChecked}
-                          onChange={() => this.handleCheck(item, main)}
-                        />
+                        <button className="dlt-tsk" onClick={() =>handleDelete(item, main)}>x</button>
+                        <input type="checkbox" checked={item.isChecked} onChange={()=>handleCheck(item, main)}/>
                       </div>
                     </div>
                   ))}
                 </div>
-                <button
-                  className="btn-dlt2"
-                  onClick={() => this.handleDeleteMain(main)}
-                >
-                  Delete all
-                </button>
+                <button className="btn-dlt2" onClick={() => handleDeleteMain(main)}>Delete all</button>
               </div>
             ))}
         </div>
         <Nav />
       </div>
     ) : (
-      //----------all Lists----------//
-
       <div>
         <div className="main-task-control">
-          {this.state.mainTask.map((main) => (
-            <div
-              className="main-task"
-              onClick={() => this.handleClick(main)}
-              key={main.id}
-            >
+          {mainTask.map((main) => (
+            <div className="main-task" onClick={() => handleClick(main)} key={main.id}>
               <div className="content-flex">
                 <h3>{main.name} </h3>
-
-                {this.handleCalc(main.list) === main.list.length
-                  ? "Cmopleted"
-                  : "In progress"}
-                <p>
-                  {this.handleCalc(main.list)}/{main.list.length}
-                </p>
+                {handleCalc(main.list) === main.list.length ? "Cmopleted": "In progress"}
+                <p>{handleCalc(main.list)}/{main.list.length}</p>
               </div>
             </div>
           ))}
         </div>
-        <Nav isOn={this.getData} />
+        <Nav isOn={getData} />
       </div>
     );
   }
-}
+
