@@ -15,12 +15,8 @@ export default function Main(){
 
   const getData = () => {
     const allData = [];
-    firebase
-      .firestore()
-      .collection(sessionStorage.getItem("id"))
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
+    firebase.firestore().collection(sessionStorage.getItem("id")).get()
+    .then((snapshot) => {snapshot.docs.forEach((doc) => {
           const data = {
             id: doc.id,
             name: doc.data().name,
@@ -35,39 +31,27 @@ export default function Main(){
   };
 
   const handleDeleteMain = (main) => {
-    firebase
-      .firestore()
-      .collection(sessionStorage.getItem("id"))
-      .doc(main.id)
-      .delete();
+    firebase.firestore().collection(sessionStorage.getItem("id")).doc(main.id).delete();
     alert("Deleted" + main.id);
     setClicked(false)
     getData()
   }
 
   const handleDelete = (item, main) => {
-    var array = main.list;
+    const array = main.list;
     for (let i = 0; i < array.length; i++) {
       if (array[i].id === item.id) {
         array.splice(i, 1);
       }
     }
-    firebase
-      .firestore()
-      .collection(sessionStorage.getItem("id"))
-      .doc(main.id)
-      .set({
+    firebase.firestore().collection(sessionStorage.getItem("id")).doc(main.id).set({
         name: main.name,
         state: main.state,
         status: main.status,
         list: array,
       })
-      .then(function () {
-        console.log("success");
-      })
-      .catch(function (error) {
-        console.error("Error", error);
-      });
+      .then(function () { console.log("success") })
+      .catch(function (error) { console.error("Error", error) });
     getData();
   };
 
@@ -78,22 +62,14 @@ export default function Main(){
       content: childitem,
       isChecked: false,
     });
-    firebase
-      .firestore()
-      .collection(sessionStorage.getItem("id"))
-      .doc(task.id)
-      .set({
+    firebase.firestore().collection(sessionStorage.getItem("id")).doc(task.id).set({
         name: task.name,
         state: task.state,
         status: task.status,
         list: arr,
       })
-      .then(function () {
-        console.log("success");
-      })
-      .catch(function (error) {
-        console.error("Error", error);
-      });
+      .then(function () {console.log("success")})
+      .catch(function (error) {console.error("Error", error)});
     getData()
   };
 
@@ -103,33 +79,25 @@ export default function Main(){
   };
 
   const handleCheck = (item, main) => {
-    var array = main.list;
+    const array = main.list;
     for (let i = 0; i < array.length; i++) {
       if (array[i].id === item.id) {
         array[i].isChecked = !item.isChecked;
       }
-      firebase
-        .firestore()
-        .collection(sessionStorage.getItem("id"))
-        .doc(main.id)
-        .set({
+      firebase.firestore().collection(sessionStorage.getItem("id")).doc(main.id).set({
           name: main.name,
           state: main.state,
           status: main.status,
           list: array,
         })
-        .then(function () {
-          console.log("success");
-        })
-        .catch(function (error) {
-          console.error("Error", error);
-        });
+        .then(function () {console.log("success")})
+        .catch(function (error) {console.error("Error", error)});
       getData();
     }
   };
 
   const handleCalc = (list) => {
-    var count = 0;
+    let count = 0;
     for (let i = 0; i < list.length; i++) {
       if (list[i].isChecked === true) {
         count = count + 1;

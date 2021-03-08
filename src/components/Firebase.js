@@ -8,4 +8,3 @@ var firebaseConfig = "Your config..."
 firebase.initializeApp(firebaseConfig);
 
 export default firebase;
-
