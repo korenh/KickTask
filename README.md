@@ -1,6 +1,8 @@
 # KickTask
 
-React application based google firebase in order to manage tasks
+<img src="./sample/example.png" height="300">
+
+React application based google firebase in order to manage tasks & users. 
 
 ## Config
 
